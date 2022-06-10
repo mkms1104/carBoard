@@ -1,0 +1,4 @@
+rootProject.name = 'carBoard'
+include('center')
+include('modules:aws-module')
+include('domains:rds-domain')

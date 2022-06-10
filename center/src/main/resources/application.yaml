@@ -1,0 +1,6 @@
+spring:
+  datasource:
+    username: admin
+    password: 123456qwe
+    url: jdbc:mysql://carboard-qa-rds.cluster-cnt5onsawglw.ap-northeast-2.rds.amazonaws.com:3306
+    driver-class-name: com.mysql.cj.jdbc.Driver
