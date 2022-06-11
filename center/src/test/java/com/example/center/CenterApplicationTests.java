@@ -8,7 +8,7 @@ class CenterApplicationTests {
 
     @Test
     void contextLoads() {
-
+        System.out.println("qa push 테스트");
     }
 
 }
