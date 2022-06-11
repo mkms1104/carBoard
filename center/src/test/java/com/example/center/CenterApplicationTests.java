@@ -8,7 +8,7 @@ class CenterApplicationTests {
 
     @Test
     void contextLoads() {
-        System.out.println("빌드 유발 테스트");
+        System.out.println("빌드 유발 테스트2");
     }
 
 }
