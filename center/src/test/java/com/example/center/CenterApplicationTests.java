@@ -8,7 +8,7 @@ class CenterApplicationTests {
 
     @Test
     void contextLoads() {
-
+        System.out.println("feature/ms-02 merge 테스트");
     }
 
 }
