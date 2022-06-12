@@ -11,4 +11,7 @@ class CenterApplicationTests {
         System.out.println("빌드 유발 테스트2");
     }
 
+    @Test
+    void kyungwonTest() { System.out.println("경원 테스트");}
+
 }
