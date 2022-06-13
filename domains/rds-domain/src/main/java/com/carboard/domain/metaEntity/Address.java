@@ -1,4 +1,4 @@
-package com.carboard.domain.common;
+package com.carboard.domain.metaEntity;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;

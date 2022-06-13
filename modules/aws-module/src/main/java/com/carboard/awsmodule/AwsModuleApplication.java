@@ -1,4 +1,4 @@
-package com.example.awsmodule;
+package com.carboard.awsmodule;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

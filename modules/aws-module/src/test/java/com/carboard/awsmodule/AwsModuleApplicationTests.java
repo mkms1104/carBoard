@@ -1,4 +1,4 @@
-package com.example.awsmodule;
+package com.carboard.awsmodule;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
