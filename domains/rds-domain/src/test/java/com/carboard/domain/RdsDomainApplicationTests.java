@@ -1,4 +1,4 @@
-package com.example.rdsdomain;
+package com.carboard.domain;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

@@ -1,7 +1,7 @@
 package com.carboard.domain.staff;
 
-import com.carboard.domain.common.Address;
-import com.carboard.domain.common.BaseTime;
+import com.carboard.domain.metaEntity.Address;
+import com.carboard.domain.metaEntity.BaseTime;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

@@ -1,6 +1,6 @@
 package com.carboard.domain.brand;
 
-import com.carboard.domain.common.BaseTime;
+import com.carboard.domain.metaEntity.BaseTime;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -13,10 +13,10 @@ import javax.persistence.*;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Brand extends BaseTime {
     @Id
-    @GeneratedValue(
-            strategy = GenerationType.IDENTITY
-    )
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "brand_id")
     private Long id;
+
+    @Column(unique = true)
     private String name;
 }

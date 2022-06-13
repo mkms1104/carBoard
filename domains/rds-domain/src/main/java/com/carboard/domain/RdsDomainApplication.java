@@ -1,13 +1,13 @@
-package com.example.center;
+package com.carboard.domain;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class CenterApplication {
+public class RdsDomainApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(CenterApplication.class, args);
+        SpringApplication.run(RdsDomainApplication.class, args);
     }
 
 }
