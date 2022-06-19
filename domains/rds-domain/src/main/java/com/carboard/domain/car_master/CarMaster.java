@@ -2,10 +2,7 @@ package com.carboard.domain.car_master;
 
 import com.carboard.domain.metaEntity.BaseTime;
 import com.carboard.domain.task.Task;
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.List;
@@ -14,6 +11,7 @@ import java.util.List;
 @Table
 @Getter @ToString
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
+@AllArgsConstructor(access = AccessLevel.PROTECTED)
 public class CarMaster extends BaseTime {
     @Id
     @GeneratedValue(
