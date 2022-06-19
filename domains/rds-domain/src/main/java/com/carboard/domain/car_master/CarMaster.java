@@ -11,7 +11,8 @@ import java.util.List;
 @Table
 @Getter @ToString
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@AllArgsConstructor(access = AccessLevel.PROTECTED)
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
+@Builder
 public class CarMaster extends BaseTime {
     @Id
     @GeneratedValue(

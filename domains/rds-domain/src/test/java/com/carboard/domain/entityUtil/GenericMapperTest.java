@@ -3,20 +3,17 @@ package com.carboard.domain.entityUtil;
 import com.carboard.domain.car_master.CarMaster;
 import com.carboard.domain.car_master.CarMasterDto;
 import com.carboard.domain.car_master.CarMasterMapper;
-import org.assertj.core.util.Lists;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mapstruct.factory.Mappers;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * 1. 매퍼 인터페이스 작성
- * 2. entity, dto 클래스에 allArgument 생성자 추가
- *   - entity 클래스는 접근 제어자 Protected
- *   - dto 클래스는 접근 제어자 Public 생성자 추가
+ * 2. entity, dto 클래스는 매핑 대상 필드에 접근할 수 있는 방법을 제공해야 한다.
+ *   - 생성자, setter, 빌더 중에 하나는 가지고 있어야 한다.
+ *   - public 접근 제어자로 설정해야 한다.
  * 3. 매퍼 인스턴스 생성해서 사용
  * */
 class GenericMapperTest {
