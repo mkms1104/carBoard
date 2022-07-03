@@ -7,6 +7,10 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mapstruct.factory.Mappers;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collector;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
