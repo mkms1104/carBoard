@@ -1,22 +1,19 @@
 package com.carboard.domain.task;
 
-import com.carboard.domain.car_master.CarMaster;
+import com.carboard.domain.carMaster.CarMaster;
 import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
-@Table
 @Getter @ToString
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @Builder
 public class Task {
     @Id
-    @GeneratedValue(
-            strategy = GenerationType.IDENTITY
-    )
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "task_id")
     private Long id;
 
@@ -25,12 +22,6 @@ public class Task {
 
     private LocalDate deliveryDate;
     private String carModel;
-    @ManyToOne
-    @JoinColumn(name = "car_master_id")
-    private CarMaster carMaster;
-
-    private String customerName;
-    private String customerPhone;
     private String carFront;
     private String carSideA;
     private String carSideB;
@@ -45,7 +36,7 @@ public class Task {
     @Column(unique = true)
     private String releaseImg;
 
-    public void setCarMaster(CarMaster carMaster) {
-        this.carMaster = carMaster;
-    }
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "car_master_id")
+    private CarMaster carMaster;
 }
