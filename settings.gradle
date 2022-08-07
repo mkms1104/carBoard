@@ -1,4 +1,5 @@
 rootProject.name = 'carBoard'
-include('center')
+include('center-api')
+include('batch-api')
 include('modules:aws-module')
 include('domains:rds-domain')
