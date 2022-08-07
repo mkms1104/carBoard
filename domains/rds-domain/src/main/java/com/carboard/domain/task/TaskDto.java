@@ -4,9 +4,8 @@ import lombok.*;
 
 import java.time.LocalDate;
 
-@Getter
+@Getter @ToString
 @Builder
-@ToString
 public class TaskDto {
     private String customerName;
     private String customerPhone;

@@ -1,15 +1,12 @@
 package com.carboard.domain.brand;
 
 import com.carboard.domain.metaEntity.BaseTime;
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 
 @Entity
-@Table
-@Getter
+@Getter @ToString
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Brand extends BaseTime {
     @Id
@@ -19,4 +16,7 @@ public class Brand extends BaseTime {
 
     @Column(unique = true)
     private String name;
+    public Brand(String name) {
+        this.name = name;
+    }
 }
