@@ -7,6 +7,7 @@ import java.time.LocalDate;
 @Getter @ToString
 @Builder
 public class TaskDto {
+    private TaskStatus status;
     private String customerName;
     private String customerPhone;
     private String carFront;
