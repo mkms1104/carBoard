@@ -1,19 +1,17 @@
 package com.carboard.center.controller;
 
-import com.carboard.domain.task.Task;
-import com.carboard.domain.task.TaskDto;
-import com.carboard.domain.task.TaskMapper;
-import com.carboard.domain.task.TaskRepository;
+import com.carboard.domain.task.*;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+@Slf4j
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/v1/task")
@@ -35,9 +33,17 @@ public class TaskController {
     }
 
     @PostMapping
-    public String createTask(TaskDto taskForm) {
+    public String createTask(@RequestBody TaskDto newTask) {
+        log.info("taskForm: {}", newTask);
+        Task newTaskEntity = TaskMapper.INSTANCE.toEntity(newTask);
+        taskRepository.save(newTaskEntity);
+        return "ok";
+    }
 
-
-        return "";
+    @GetMapping("/{id}")
+    public TaskDto getTaskByKeyword(@PathVariable("id") Long id) {
+        Optional<Task> optionalTask = taskRepository.findById(id);
+        if (optionalTask.isEmpty()) return null;
+        return TaskMapper.INSTANCE.toDto(optionalTask.get());
     }
 }
