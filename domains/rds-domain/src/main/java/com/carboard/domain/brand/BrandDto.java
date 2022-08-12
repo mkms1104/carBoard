@@ -7,5 +7,6 @@ import lombok.ToString;
 @Getter @ToString
 @AllArgsConstructor
 public class BrandDto {
+    private Long id;
     private String name;
 }
