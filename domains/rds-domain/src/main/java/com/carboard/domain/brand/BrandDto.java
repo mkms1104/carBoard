@@ -1,12 +1,10 @@
 package com.carboard.domain.brand;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.ToString;
+import lombok.*;
 
 @Getter @ToString
 @AllArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class BrandDto {
-    private Long id;
     private String name;
 }

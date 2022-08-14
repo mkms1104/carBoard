@@ -32,7 +32,7 @@ class BrandTest extends JpaTestSupport {
     @Override
     public void mapper() {
         //given
-        BrandDto dto = new BrandDto(1L, "myBrand01");
+        BrandDto dto = new BrandDto("myBrand01");
         Brand entity = new Brand("myBrand02");
 
         //when

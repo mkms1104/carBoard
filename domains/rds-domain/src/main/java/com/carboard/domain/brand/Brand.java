@@ -13,10 +13,13 @@ public class Brand extends BaseTime {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "brand_id")
     private Long id;
-
     @Column(unique = true)
     private String name;
     public Brand(String name) {
+        this.name = name;
+    }
+
+    public void update(String name) {
         this.name = name;
     }
 }
