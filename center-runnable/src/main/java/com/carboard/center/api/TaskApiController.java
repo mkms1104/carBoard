@@ -1,53 +1,47 @@
 package com.carboard.center.api;
 
-import com.carboard.center.service.TaskApiService;
 import com.carboard.domain.task.*;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.ResponseEntity;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
-import java.net.URI;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-@RequiredArgsConstructor
-@RequestMapping("api/v1")
+@Slf4j
 @RestController
+@RequiredArgsConstructor
+@RequestMapping("/v1/task")
 public class TaskApiController {
     private final TaskRepository taskRepository;
-    private final TaskApiService taskApiService;
 
-    @GetMapping("tasks")
-    public ResponseEntity getTasks(@RequestParam(required = false) TaskStatus status,
-                                           @RequestParam(required = false) String keyword) {
-        //TODO: 동적쿼리 만들어줘야 함.
-        List<Task> tasks = taskRepository.findAllByStatus(status);
-        return ResponseEntity.ok(taskApiService.toDtoList(tasks));
+    @GetMapping("test")
+    public String testRoute(TaskDto taskDto) {
+        System.out.println(taskDto);
+        return "test";
     }
 
-    @GetMapping("tasks/{id}")
-    public ResponseEntity getTask(@PathVariable("id") Long taskId) {
-        Optional<Task> taskOp = taskRepository.findById(taskId);
-        Task task = taskOp.orElseThrow(() -> { throw new IllegalArgumentException(""); });
-        return ResponseEntity.ok(taskApiService.toDto(task));
+    @GetMapping
+    public List<TaskDto> getTaskList() {
+        List<Task> tasks = taskRepository.findAll();
+        return tasks.stream()
+            .map(v -> TaskMapper.INSTANCE.toDto(v))
+            .collect(Collectors.toList());
     }
 
-    @PostMapping("tasks")
-    public ResponseEntity createTask(@RequestBody TaskDto newTask) {
-        Task newTaskEntity = taskApiService.toEntity(newTask);
+    @PostMapping
+    public String createTask(@RequestBody TaskDto newTask) {
+        log.info("taskForm: {}", newTask);
+        Task newTaskEntity = TaskMapper.INSTANCE.toEntity(newTask);
         taskRepository.save(newTaskEntity);
-        return ResponseEntity.created(URI.create("")).build();
+        return "ok";
     }
 
-    @PutMapping("tasks/{id}")
-    public ResponseEntity updateTask(@PathVariable("id") Long taskId, @RequestBody TaskDto updateDto) {
-        return ResponseEntity.ok(taskApiService.update(taskId, updateDto));
-    }
-
-    @DeleteMapping("tasks/{id}")
-    public ResponseEntity deleteTask(@PathVariable("id") Long taskId) {
-        taskRepository.deleteById(taskId);
-        return ResponseEntity.ok().build();
+    @GetMapping("/{id}")
+    public TaskDto getTaskByKeyword(@PathVariable("id") Long id) {
+        Optional<Task> optionalTask = taskRepository.findById(id);
+        if (optionalTask.isEmpty()) return null;
+        return TaskMapper.INSTANCE.toDto(optionalTask.get());
     }
 }

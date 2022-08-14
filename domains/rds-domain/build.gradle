@@ -4,7 +4,7 @@ jar.enabled=true
 dependencies {
     api 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.springframework.boot:spring-boot-starter-jdbc'
-    testImplementation 'com.h2database:h2:2.1.210'
+    implementation 'com.h2database:h2:2.1.210'
     implementation 'mysql:mysql-connector-java'
 
     implementation 'org.mapstruct:mapstruct:1.4.2.Final'
