@@ -39,4 +39,10 @@ public class Task {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "car_master_id")
     private CarMaster carMaster;
+
+    public void update(TaskDto dto) {
+        this.status = dto.getStatus();
+
+        this.carFront = dto.getCarFront();
+    }
 }

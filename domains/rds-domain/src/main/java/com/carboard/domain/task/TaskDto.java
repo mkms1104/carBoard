@@ -7,9 +7,13 @@ import java.time.LocalDate;
 @Getter @ToString
 @Builder
 public class TaskDto {
+    private Long id;
     private TaskStatus status;
+    private LocalDate deliveryDate;
     private String customerName;
     private String customerPhone;
+
+    private String carModel;
     private String carFront;
     private String carSideA;
     private String carSideB;
