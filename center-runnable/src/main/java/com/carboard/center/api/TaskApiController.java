@@ -1,12 +1,10 @@
-package com.carboard.center.controller;
+package com.carboard.center.api;
 
 import com.carboard.domain.task.*;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDate;
-import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -15,7 +13,7 @@ import java.util.stream.Collectors;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/v1/task")
-public class TaskController {
+public class TaskApiController {
     private final TaskRepository taskRepository;
 
     @GetMapping("test")
