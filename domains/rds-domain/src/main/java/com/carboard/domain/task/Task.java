@@ -1,6 +1,7 @@
 package com.carboard.domain.task;
 
 import com.carboard.domain.carMaster.CarMaster;
+import com.carboard.domain.metaEntity.BaseTime;
 import lombok.*;
 
 import javax.persistence.*;
@@ -26,6 +27,7 @@ public class Task {
     private String carSideA;
     private String carSideB;
     private String carBack;
+
     private String panorama;
     private String blackBox;
     private String ppf;
@@ -41,7 +43,24 @@ public class Task {
     @JoinColumn(name = "car_master_id")
     private CarMaster carMaster;
 
-    public void setCarMaster(CarMaster carMaster) {
+    public void update(TaskDto dto, CarMaster carMaster) {
+        //Status
+        this.status = dto.getStatus();
+        this.deliveryDate = dto.getDeliveryDate();
+        this.releaseDate = dto.getReleaseDate();
+        this.releaseImg = dto.getReleaseImg();
         this.carMaster = carMaster;
+
+        //Service
+        this.carFront = dto.getCarFront();
+        this.carSideA = dto.getCarSideA();
+        this.carSideB = dto.getCarSideB();
+        this.carBack = dto.getCarBack();
+        this.panorama = dto.getPanorama();
+        this.blackBox = dto.getBlackBox();
+        this.ppf = dto.getPpf();
+        this.etc = dto.getEtc();
+        this.coilMatt = dto.getCoilMatt();
+        this.glassFilm = dto.getGlassFilm();
     }
 }
