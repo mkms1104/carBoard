@@ -1,5 +1,7 @@
 package com.carboard.domain.task;
 
+import com.carboard.domain.carMaster.CarMaster;
+import com.carboard.domain.carMaster.CarMasterDto;
 import lombok.*;
 
 import java.time.LocalDate;
@@ -18,6 +20,7 @@ public class TaskDto {
     private String carSideA;
     private String carSideB;
     private String carBack;
+
     private String panorama;
     private String blackBox;
     private String ppf;
@@ -26,4 +29,7 @@ public class TaskDto {
     private String glassFilm;
     private LocalDate releaseDate;
     private String releaseImg;
+
+    //FK
+    private CarMasterDto carMasterDto;
 }
