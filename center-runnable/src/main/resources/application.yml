@@ -15,6 +15,7 @@ spring:
 
 logging:
   level:
+    com.carboard: debug
     org.hibernate:
       SQL: debug
       type.descriptor.sql: trace

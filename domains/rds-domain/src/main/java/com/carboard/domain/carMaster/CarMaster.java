@@ -24,6 +24,7 @@ public class CarMaster extends BaseTime {
     private String company;
 
     @OneToMany(mappedBy = "carMaster")
+    @ToString.Exclude
     private List<Task> task = new ArrayList<>();
 
     public CarMaster(String name, String phone, String company) {

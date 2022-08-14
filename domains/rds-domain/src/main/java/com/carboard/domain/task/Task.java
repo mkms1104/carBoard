@@ -36,7 +36,12 @@ public class Task {
     @Column(unique = true)
     private String releaseImg;
 
+    @ToString.Exclude
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "car_master_id")
     private CarMaster carMaster;
+
+    public void setCarMaster(CarMaster carMaster) {
+        this.carMaster = carMaster;
+    }
 }
