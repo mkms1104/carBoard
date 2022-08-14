@@ -4,6 +4,10 @@ import com.carboard.center.service.BrandApiService;
 import com.carboard.domain.brand.BrandDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.hateoas.Link;
+import org.springframework.hateoas.server.LinkBuilder;
+import org.springframework.hateoas.server.mvc.BasicLinkBuilder;
+import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -30,10 +34,9 @@ public class BrandApiController {
 
     @PostMapping("brands")
     public ResponseEntity createBrand(@RequestBody BrandDto brandDto) {
-        BrandDto saved = brandApiService.createBrand(brandDto.getName());
-//        URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
-//                .path("/{id}").buildAndExpand(saved.getId()).toUri();
-        return ResponseEntity.created(URI.create("")).body(saved);
+        Long id = brandApiService.createBrand(brandDto.getName());
+        URI uri = WebMvcLinkBuilder.linkTo(BrandApiController.class).slash(id).toUri();
+        return ResponseEntity.created(uri).build();
     }
 
     @PutMapping("brands/{brand_id}")

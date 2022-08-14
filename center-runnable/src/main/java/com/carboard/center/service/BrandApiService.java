@@ -31,9 +31,9 @@ public class BrandApiService {
     }
 
     @Transactional
-    public BrandDto createBrand(String name) {
+    public Long createBrand(String name) {
         Brand saved = brandRepository.save(new Brand(name));
-        return BrandMapper.INSTANCE.toDto(saved);
+        return saved.getId();
     }
 
     @Transactional
