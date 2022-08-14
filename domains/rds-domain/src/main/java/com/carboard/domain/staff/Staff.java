@@ -10,7 +10,6 @@ import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
-@Table
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Staff extends BaseTime {
