@@ -8,9 +8,9 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 @RestControllerAdvice
 public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
 
-    @ExceptionHandler(IllegalArgumentException.class)
-    public ResponseEntity<Object> handleNotFoundResource() {
-        logger.info("call handleNotFoundResource");
+    @ExceptionHandler(NotFoundDataWithId.class)
+    public ResponseEntity<Object> handleNotDataWithId() {
+        logger.info("call handleNotDataWithId");
         return ResponseEntity.noContent().build();
     }
 }

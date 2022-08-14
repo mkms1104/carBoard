@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
+import java.util.List;
 
 @Slf4j
 @RestController
@@ -23,8 +24,8 @@ public class BrandApiController {
     }
 
     @GetMapping("brands")
-    public void getBrands() {
-
+    public ResponseEntity<List<BrandDto>> getBrands() {
+        return ResponseEntity.ok(brandApiService.getBrands());
     }
 
     @PostMapping("brands")
